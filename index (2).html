@@ -1,0 +1,216 @@
+<html>
+	<head>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <title></title>
+		<link rel="stylesheet" id="link_load" href="https://finder.ross-tur.ru/main/6.0/css/finder.style.css" type="text/css" media="all">
+	</head>
+	<body>
+		<div id="idFind">
+			<div class="gde-wrapper">
+			  <div id="loader"></div>
+			  <div>
+				<div class="gde-row gde-bg-red" id="gde-sd-block">
+				  <div class="gde-cell gde-cell-6 padding"> <span class="gde-cell-label">Город отправления</span>
+					<select id="gde-src" data-width="380"></select>
+					<div for="gde-src" class="gde-selectable small" style="width: 380px;">
+					  <div class="gde-firstelem">&nbsp;</div>
+					</div>
+				  </div>
+				  <div class="gde-cell gde-cell-6 padding"> <span class="gde-cell-label">Страна прибытия</span>
+					<select id="gde-dst" data-width="380"></select>
+					<div for="gde-dst" class="gde-selectable small" style="width: 380px;">
+					  <div class="gde-firstelem">&nbsp;</div>
+					</div>
+				  </div>
+				</div>
+				<div class="gde-row middle-row">
+				  <g-block v-for="(l,o) in elements" :ement="l"></g-block>
+				</div>
+				<div class="gde-row">
+				  <div class="gde-cell"> <span class="gde-cell-label">Диапазон дат вылета</span>
+					<div class="gde-cell-block">
+					  <div class="loader"></div>
+					  <div class="gde-content">
+						<div class="gde-content-box" id="gde-day">
+						  <input type=text class="gde-input date" readonly id="gde-dates" /> </div>
+					  </div>
+					</div>
+				  </div>
+				  <div class="gde-cell"> <span class="gde-cell-label">Продолжительность</span>
+					<div class="gde-cell-block">
+					  <div class="loader"></div>
+					  <div class="gde-content">
+						<div class="gde-content-box" id="gde-night">
+						  <select id="gde-night-from" data-width="52"></select>
+						  <div for="gde-night-from" class="gde-selectable small" style="width: 52px;">
+							<div class="gde-firstelem">0</div>
+						  </div> <span class="gde-box-title"> — </span>
+						  <select id="gde-night-to" data-width="52"></select>
+						  <div for="gde-night-to" class="gde-selectable small" style="width: 52px;">
+							<div class="gde-firstelem">0</div>
+						  </div>
+						</div>
+					  </div>
+					</div>
+				  </div>
+				  <div class="gde-cell"> <span class="gde-cell-label">Цена от</span>
+					<div class="gde-cell-block">
+					  <div class="loader"></div>
+					  <div class="gde-content">
+						<div class="gde-content-box">
+						  <input type=text class="gde-input text-right price" id="gde-price-from" /> </div>
+					  </div>
+					</div>
+				  </div>
+				  <div class="gde-cell"> <span class="gde-cell-label">Цена до</span>
+					<div class="gde-cell-block">
+					  <div class="loader"></div>
+					  <div class="gde-content">
+						<div class="gde-content-box">
+						  <input type=text class="gde-input text-right price" id="gde-price-to" /> </div>
+					  </div>
+					</div>
+				  </div>
+				  <div class="gde-cell"> <span class="gde-cell-label">Валюта</span>
+					<div class="gde-cell-block">
+					  <div class="loader"></div>
+					  <div class="gde-content">
+						<div class="gde-content-box">
+						  <select id="gde-valute" data-width="57"></select>
+						  <div for="gde-valute" class="gde-selectable small" style="width: 57px;">
+							<div class="gde-firstelem">&nbsp;</div>
+						  </div>
+						</div>
+					  </div>
+					</div>
+				  </div>
+				</div>
+				<div class="gde-row">
+				  <div class="gde-cell"> <span class="gde-cell-label">Взрослых</span>
+					<div class="gde-cell-block">
+					  <div class="gde-content">
+						<div class="gde-content-box">
+						  <select id="gde-adult" data-width="45"></select>
+						  <div for="gde-adult" class="gde-selectable small" style="width:45px;">
+							<div class="gde-firstelem">&nbsp;</div>
+						  </div>
+						</div>
+					  </div>
+					</div>
+				  </div>
+				  <div class="gde-cell"> <span class="gde-cell-label">Детей</span>
+					<div class="gde-cell-block">
+					  <div class="gde-content">
+						<div class="gde-content-box">
+						  <select id="gde-child" data-width="45"></select>
+						  <div for="gde-child" class="gde-selectable small" style="width:45px;">
+							<div class="gde-firstelem">&nbsp;</div>
+						  </div>
+						</div>
+					  </div>
+					</div>
+				  </div>
+				  <div class="gde-cell"> <span class="gde-cell-label">Возраст детей</span>
+					<div class="gde-cell-block">
+					  <div class="gde-content">
+						<div class="gde-content-box" id="gde-childs">
+						  <div for="gde-child-1" class="gde-selectable small disabled mr5" style="width:45px;">
+							<div class="gde-firstelem">0</div>
+						  </div>
+						  <div for="gde-child-2" class="gde-selectable small disabled mr5" style="width:45px;">
+							<div class="gde-firstelem">0</div>
+						  </div>
+						  <div for="gde-child-3" class="gde-selectable small disabled mr5" style="width:45px;">
+							<div class="gde-firstelem">0</div>
+						  </div>
+						  <div for="gde-child-4" class="gde-selectable small disabled mr5" style="width:45px;">
+							<div class="gde-firstelem">0</div>
+						  </div>
+						</div>
+					  </div>
+					</div>
+				  </div>
+				  <div class="gde-cell"> <span class="gde-cell-label">&nbsp;</span>
+					<div class="gde-cell-block">
+					  <div class="gde-content gde-checks">
+						<label for="gde-place-hotel" style="margin-top:5px;">
+						  <input type="checkbox" id="gde-place-hotel" checked="checked" style="width:20px;" />
+						  <div>есть места в отеле</div>
+						</label>
+					  </div>
+					</div>
+				  </div>
+				  <div class="gde-cell"> <span class="gde-cell-label">&nbsp;</span>
+					<div class="gde-cell-block">
+					  <div class="gde-content gde-checks">
+						<label for="gde-place-avia" style="margin-top:5px;">
+						  <input type="checkbox" id="gde-place-avia" checked="checked" style="width:20px;" />
+						  <div>есть авиабилеты</div>
+						</label>
+					  </div>
+					</div>
+				  </div>
+				</div>
+				<div class="gde-row">
+				  <div class="gde-cell">
+					<div class="gde-cell-block">
+					  <div class="gde-content"> <a href="#" id="getSearch" class="gde-button gde-bg-red start">НАЙТИ</a> </div>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+			<div class="gde_result_legend"></div>
+			<div id="gde-result"></div>
+		</div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.25/vue.js"></script>
+		<script src="templates.js"></script>
+		<script src="advanced.js"></script>
+		
+		<script>
+		var elements = {
+			town:{
+				title:'Города и курорты',
+				class:'gde-cell-3',
+				list:[1,2,3,4]
+			},
+			star:{
+				title:'Категория отеля',
+				class:'gde-cell-2',
+				list:[11,22,33,44]
+			},
+			meal:{
+				title:'Питание',
+				class:'gde-cell-3',
+				list:[111,222,333,444]
+			},
+			hotel:{
+				title:'Отели',
+				class:'gde-cell-4',
+				list:[1112,2223,3334,4445],
+				withFilter:true
+			}
+		};
+		Vue.component('g-block', {
+			props:['ement'],
+			template: templates.block,
+			data: function(){
+				return elements[this.ement];
+				
+			}
+		});
+		var vm = new Vue({
+			el: '#idFind',
+			data:{
+				elements: elements
+			},
+			 created: function () {
+    // `this` указывает на экземпляр vm
+    console.log('Значение a: ',  this.elements)
+  }
+
+		});
+		
+		</script>
+	</body>
+</html>
